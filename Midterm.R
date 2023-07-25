@@ -29,7 +29,7 @@ status(diet)
     # all variables are 'numeric' 
     # the variable that currently contains less than 80% of non-NA values is 'gender' <- will have to find methods to deal with this missingness
 
-    # Step 2 
+    # Step 2: Analyzing Categorical Variables
 
 freq(diet) # Output = NULL: all variables are 'numeric' and are not a factor or a character - must apply this function to specific columns of the dataset 
 
@@ -42,3 +42,8 @@ freq(diet$gender)
 ggsave("Gender Frequency.png", dpi = "print") # Saved to my Midterm Project folder 
 freq(diet$Diet)
 ggsave("Diet Frequency.png", dpi = "print") # Saved to my Midterm Project folder
+
+    # Step 3: Analyzing Numerical Variables 
+
+plot_num(diet)
+ggsave("Analyzing Numerical Variables.png", dpi = "print")
