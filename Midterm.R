@@ -39,7 +39,7 @@ freq(diet) # Output = NULL: all variables are 'numeric' and are not a factor or 
 
 diet$gender <- as.character(diet$gender)
 diet$Diet <- as.factor(diet$Diet)
-diet$Person <- as.factor(diet$Person) # 
+diet$Person <- as.factor(diet$Person) # this variable has been converted to a categorical variable since it is used to uniquely identify each participant in the dataset and holds no numerical value 
 
 freq(diet$gender)
 ggsave("Gender Frequency EDA.png", dpi = "print") # Saved to my Midterm Project folder 
@@ -69,3 +69,17 @@ describe(diet)
 
 # SECTION 2: Dealing with Missingness
 
+status(diet) 
+
+    # this output shows that there are only missing values within the gender column
+    # within this report all NA values will be converted to a variable '2'which will be referred to as 'unidentified' in the report 
+    # these rows will be kept otherwise seeing as there is no alternate indication of missingness in the remaining columns 
+
+diet$gender <- ifelse(is.na(diet$gender), '2', diet$gender)
+view(diet) # View the new dataset 
+any(is.na(diet)) # Check if there are any remaining missing values within the dataset <- indicates FALSE (there are no longer any NA's found within this dataset)
+
+freq(diet$gender)
+ggsave("Actual Gender Frequency.png", dpi = "print") # Saved to my Midterm Project folder
+
+# SECTION 3: New Column - 'Weight Change' 
