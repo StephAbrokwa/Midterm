@@ -80,4 +80,6 @@ view(diet) # View the new dataset
 any(is.na(diet)) # Check if there are any remaining missing values within the dataset <- indicates FALSE (there are no longer any NA's found within this dataset)
 
 freq(diet$gender)
-ggsave("Actual Gender Frequency.png", dpi = "print") # Saved to my Midterm Project folder 
+ggsave("Actual Gender Frequency.png", dpi = "print") # Saved to my Midterm Project folder
+
+# SECTION 3: New Column - 'Weight Change' 
