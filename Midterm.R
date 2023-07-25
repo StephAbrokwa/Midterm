@@ -82,4 +82,18 @@ any(is.na(diet)) # Check if there are any remaining missing values within the da
 freq(diet$gender)
 ggsave("Actual Gender Frequency.png", dpi = "print") # Saved to my Midterm Project folder
 
-# SECTION 3: New Column - 'Weight Change' 
+# SECTION 3: New Column - 'Weight_Change' and New Subset 
+
+    # Add a new column 'Weight_Change' to represent the change in weight of participants after the 6-week period 
+
+diet$Weight_Change <- diet$pre.weight - diet$weight6weeks
+View(diet) # View the new dataset 
+
+# the independent variables that will be used in the analysis of the report are: gender, age, and diet
+# a subset 'diet_subset' will be created that only includes these columns 
+
+    # Determine the variables you intend to use in your analysis, and remove the rest 
+
+diet_subset <- subset(diet, select = c(gender, Age, Diet, Weight_Change))
+view(diet_subset) # View the data subset 
+
