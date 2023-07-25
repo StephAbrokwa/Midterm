@@ -39,7 +39,7 @@ freq(diet) # Output = NULL: all variables are 'numeric' and are not a factor or 
 
 diet$gender <- as.character(diet$gender)
 diet$Diet <- as.factor(diet$Diet)
-diet$Person <- as.factor(diet$Person) # 
+diet$Person <- as.factor(diet$Person) # this variable has been converted to a categorical variable since it is used to uniquely identify each participant in the dataset and holds no numerical value 
 
 freq(diet$gender)
 ggsave("Gender Frequency EDA.png", dpi = "print") # Saved to my Midterm Project folder 
