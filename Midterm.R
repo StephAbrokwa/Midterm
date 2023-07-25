@@ -1,6 +1,8 @@
 # Coding in R - Midterm
 
-# Exploratory Data Analysis (EDA) of the Diet Research csv
+# The following code will be split up into () section to conduct the visual and numerical analysis of this report 
+
+# SECTION 1: Exploratory Data Analysis (EDA) of the Diet Research csv
 
 install.packages("tidyverse")
 install.packages("devtools")
@@ -37,18 +39,19 @@ freq(diet) # Output = NULL: all variables are 'numeric' and are not a factor or 
 
 diet$gender <- as.character(diet$gender)
 diet$Diet <- as.factor(diet$Diet)
+diet$Person <- as.factor(diet$Person) # 
 
 freq(diet$gender)
-ggsave("Gender Frequency.png", dpi = "print") # Saved to my Midterm Project folder 
+ggsave("Gender Frequency EDA.png", dpi = "print") # Saved to my Midterm Project folder 
 freq(diet$Diet)
-ggsave("Diet Frequency.png", dpi = "print") # Saved to my Midterm Project folder
+ggsave("Diet Frequency EDA.png", dpi = "print") # Saved to my Midterm Project folder
 
     # Step 3: Analyzing Numerical Variables 
 
     # Graphically 
 
 plot_num(diet)
-ggsave("Analyzing Numerical Variables.png", dpi = "print")
+ggsave("Analyzing Numerical Variables EDA.png", dpi = "print")
 
     # Quantitatively 
 
@@ -64,4 +67,5 @@ write.csv(diet_profile, file = "Diet_profile.csv", row.names = FALSE)
 library(Hmisc)
 describe(diet)
 
+# SECTION 2: Dealing with Missingness
 
