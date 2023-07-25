@@ -45,5 +45,23 @@ ggsave("Diet Frequency.png", dpi = "print") # Saved to my Midterm Project folder
 
     # Step 3: Analyzing Numerical Variables 
 
+    # Graphically 
+
 plot_num(diet)
 ggsave("Analyzing Numerical Variables.png", dpi = "print")
+
+    # Quantitatively 
+
+diet_profile = profiling_num(diet)
+print(diet_profile)
+    
+    # Saving the profiling result as a CSV file to place within report 
+
+write.csv(diet_profile, file = "Diet_profile.csv", row.names = FALSE)
+
+    # Analyzing Numerical and Categorical Variables Simultaneously 
+
+library(Hmisc)
+describe(diet)
+
+
