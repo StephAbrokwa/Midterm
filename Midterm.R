@@ -71,9 +71,15 @@ describe(diet)
 
 status(diet) 
 
+<<<<<<< HEAD
 # this output shows that there are only missing values within the gender column
 # within this report all NA values will be converted to a variable '2'which will be referred to as 'unidentified' in the report 
 # these rows will be kept otherwise seeing as there is no alternate indication of missingness in the remaining columns 
+=======
+    # this output shows that there are only missing values within the gender column
+    # within this report all NA values will be converted to a variable '2'which will be referred to as 'unidentified' in the report 
+    # these rows will be kept otherwise seeing as there is no alternate indication of missingness in the remaining columns 
+>>>>>>> bd3cc4f751d5ec8c4f156afbd93361ba0fa64eda
 
 diet$gender <- ifelse(is.na(diet$gender), '2', diet$gender)
 view(diet) # View the new dataset 
@@ -81,6 +87,7 @@ any(is.na(diet)) # Check if there are any remaining missing values within the da
 
 freq(diet$gender)
 ggsave("Actual Gender Frequency.png", dpi = "print") # Saved to my Midterm Project folder
+<<<<<<< HEAD
 
 # SECTION 3: New Column - 'Weight_Change' and New Subset 
 
@@ -96,4 +103,7 @@ View(diet) # View the new dataset
 
 diet_subset <- subset(diet, select = c(gender, Age, Diet, Weight_Change))
 view(diet_subset) # View the data subset 
+=======
+>>>>>>> bd3cc4f751d5ec8c4f156afbd93361ba0fa64eda
 
+# SECTION 3: New Column - 'Weight Change' 
