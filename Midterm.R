@@ -139,3 +139,17 @@ ggplot(diet, aes(x = factor(gender), y = Weight_Change)) +
 
 ggsave("Comparison of Weight Change by Gender.png", dpi = "print")
 
+    # Violin Plot to compare 'Weight_Change' for each diet type
+
+ggplot(diet, aes(x = factor(Diet), y = Weight_Change, fill = factor(Diet))) +
+  geom_violin(trim = FALSE, alpha = 0.7) +
+  geom_boxplot(width = 0.1, fill = "white", color = "black", outlier.shape = NA) +
+  labs(x = "Diet Type", y = "Weight Change", title = "Comparison of Weight Change by Diet Type") +
+  theme_minimal() +
+  scale_fill_manual(values = c("lightblue", "lightgreen", "lightpink"), 
+                    labels = c("Diet 1", "Diet 2", "Diet 3"))
+
+# Save the plot 
+
+ggsave("Comparison of Weight Change by Diet Type.png", dpi = "print")
+
