@@ -125,3 +125,17 @@ corrplot(cor_matrix, method = "circle")
 dev.off()
 
 # SECTION 5: Data Visualization and Analysis
+
+library(ggplot2)
+
+    # Box plot to compare 'Weight_Change' for each gender category 
+
+ggplot(diet, aes(x = factor(gender), y = Weight_Change)) + 
+  geom_boxplot(fill = "lightblue", color = "blue") + 
+  labs(x = "Gender", y = "Weight Change", title = "Comparision of Weight Change by Gender") + 
+  theme_minimal()
+
+# Save the plot 
+
+ggsave("Comparison of Weight Change by Gender.png", dpi = "print")
+
