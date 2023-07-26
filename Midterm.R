@@ -95,15 +95,30 @@ ggsave("Actual Gender Frequency.png", dpi = "print") # Saved to my Midterm Proje
 diet$Weight_Change <- diet$pre.weight - diet$weight6weeks
 View(diet) # View the new dataset 
 
-# the independent variables that will be used in the analysis of the report are: gender, age, and diet
+# the independent variables that will be used in the analysis of the report are: gender, age, height, pre-weight, diet, weight after 6 weeks, and weight change
 # a subset 'diet_subset' will be created that only includes these columns 
 
     # Determine the variables you intend to use in your analysis, and remove the rest 
 
-diet_subset <- subset(diet, select = c(gender, Age, Diet, Weight_Change))
+diet_subset <- diet[, !(names(diet) %in% "Person")]
 view(diet_subset) # View the data subset 
 
 # SECTION 4: Data Visualization and Analysis
 
+    # Install the corrplot package
 
+install.packages("corrplot")
+library(corrplot)
 
+    # Create a correlation matrix - can only create a correlation matrix with numerical values 
+
+diet_subset$gender <- as.numeric(diet_subset$gender)
+diet_subset$Diet <- as.numeric(diet_subset$Diet)
+diet_matrix <- cor(diet_subset)
+corrplot(diet_matrix, method = "circle")
+
+    # Save the plot 
+
+png("Correlation_Plot.png", width = 800, height = 800)
+corrplot(cor_matrix, method = "circle")
+dev.off()
