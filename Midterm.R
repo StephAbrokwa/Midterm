@@ -103,7 +103,7 @@ View(diet) # View the new dataset
 diet_subset <- diet[, !(names(diet) %in% "Person")]
 view(diet_subset) # View the data subset 
 
-# SECTION 4: Data Visualization and Analysis
+# SECTION 4: Correlation
 
     # Install the corrplot package
 
@@ -112,8 +112,9 @@ library(corrplot)
 
     # Create a correlation matrix - can only create a correlation matrix with numerical values 
 
-diet_subset$gender <- as.numeric(diet_subset$gender)
+diet_subset$gender <- as.numeric(diet_subset$gender) # Convert all variables to numeric 
 diet_subset$Diet <- as.numeric(diet_subset$Diet)
+
 diet_matrix <- cor(diet_subset)
 corrplot(diet_matrix, method = "circle")
 
@@ -122,3 +123,5 @@ corrplot(diet_matrix, method = "circle")
 png("Correlation_Plot.png", width = 800, height = 800)
 corrplot(cor_matrix, method = "circle")
 dev.off()
+
+# SECTION 5: Data Visualization and Analysis
